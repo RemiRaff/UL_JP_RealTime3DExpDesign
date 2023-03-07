@@ -8,8 +8,19 @@ public class MainManager : MonoBehaviour
 
     public static MainManager Instance;
 
+    // class member
+    public Color TeamColor; // new variable declared
+
     private void Awake()
     {
+        // start of new code
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        // This pattern is called a singleton.
+
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
